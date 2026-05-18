@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Coffee Management</title>
+   <!-- bootstrap 5 cdn -->
+     <link rel = "stylesheet" href="./src/css/bootstrap.css">
+
+   <link rel="icon" href="./src/img/logo.png" type="image/png">
+
+    <!-- Fontawesome cdn -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- auth css -->
+    <link rel ="stylesheet" href = "./src/css/auth.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="./src/css/main.css">
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class = "row justify-content auth-container">
+            <div class =" col-md-6 shadow-md p-4 rounded-md">
+                <a href="index.html" class="logo-container btn-primary">
+                    <i class="fa-sharp-duotone fa-solid fa-house"></i>
+                </a>
+                <h5>Đăng nhập</h5>
+                <form action="" id ="login-form">
+                    <div class = "form-group mb-3">
+                     <div class = "input-wrapper">
+                                <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                                <input type = "text" class ="form-control inp-email" id = "Email"
+                                placeholder = "Email">
+                            </div>
+                    </div>
+
+                    <div class = "form-group mb-3">
+                        <div class = "input-wrapper">
+                            <span class="icon"><i class="fa-sharp fa-solid fa-key"></i></span>
+                            <input type = "text" class ="form-control inp-pwd" id = "Pwd"
+                            placeholder = "Password">
+                        </div>
+                    </div>
+                    <button type ="submit" class = "btn btn-primary btn-auth">Đăng nhập</button>
+                    <p class="login-link mt-3 text-center">Chưa có tài khoản?<a href="register.html">Đăng ký</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 cdn -->
+    <script src=".src/js/bootstrap.js"></script>
+</body>
+</html>
