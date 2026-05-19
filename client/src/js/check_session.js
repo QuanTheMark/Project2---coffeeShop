@@ -2,9 +2,10 @@ const checkSession = () =>{
     let userSession = JSON.parse(localStorage.getItem('userSession'));
     if(!userSession){
         window.location.href = "./login.html";
-    }else{
-        const now = new Date().getTime();
+        return;
     }
+    
+    const now = new Date().getTime();
 
     if(now > userSession){
         console.log("Phiên đăng nhập không hợp lệ!");
@@ -16,4 +17,4 @@ const checkSession = () =>{
 
 };
 
-export {checkSession};
+export { checkSession };
