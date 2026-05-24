@@ -5,6 +5,8 @@
     --color-white: #fff;
     --color-grey: #5c5c5e;
     --color-grey-light: #dcdcdc;
+    --color-warning: #ffc107;
+    --color-success:green;
 }   
 
 .btn-primary{
@@ -19,6 +21,11 @@
 .btn-danger{
     background-color: var(--color-danger);
     color: var(--color-white);
+}
+
+.btn-success:hover{
+    background-color: var(--color-success);
+    opacity: 0.9;
 }
 .btn-cancel{
     background-color: var(--color-danger);

@@ -17,12 +17,54 @@
     <!-- main css -->
     <link rel="stylesheet" href="./src/css/main.css">
 
+    <!-- index css -->
+    <link rel="stylesheet" href="./src/css/index.css">
+
 </head>
 <body>
     
+    <div class="page-wrapper">
+      <div class="banner-group">
+        <header>
+          <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+              <img src="./src/img/UzawaCF.png" class="rounded float-start" alt="a coffee logo">
+              <h2 class="text-primary">Coffee Archive</h2>
+            </div>
+            <ul class="nav pe-4 align-items-center">
+              <li class="nav-item">
+                <a href="./index.html" class ="nav-link text-white">Home</a>
+              </li>
+              <li class = "nav-item">
+                <a href="./menu.html" class ="nav-link text-white">Menu</a>
+              </li>
+              <li class ="nav-item">
+                <a href="#" class = "nav-link"><i class="fa-solid fa-cart-shopping text-white"></i></a>
+              </li>
+              <div class="profile">
+                <button type="button" id = "profile-dropdown" class="dropdown-toggle btn btn-outline-light btn-success" 
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user"></i>Tài khoản</button>
+                <ul id="author-menu-drd" class="dropdown-menu" aria-labelledby="profile-dropdown">
+                    <li><a class="dropdown-item" href="./login.html">Đăng nhập</a></li>
+                    <li><a class="dropdown-item" href="./register.html">Đăng ký</a></li>
+                </ul>
+              </div>
+            </ul>
+          </div>
+        </header>
+        <div class="banner-text text-start ps-5">
+            <h1 class="title text-white">Chào mừng bạn đến với 
+              <span class="text-primary">Coffee Archive</span></h1>
+            <h5 class="text-white mt-5">Cafe đậm vị đồng quê, uống là phải mê</h5>
+            <button class="btn px-5 py-2 rounded-pill mt-5 fw-bolid">Mua ngay</button>
+        </div>
+        </div>
+      </div>
+    </div>
 
 
     <!-- Bootstrap 5 cdn -->
-      <script src=".src/js/bootstrap.js"></script>
+      <script src="./src/js/bootstrap.js"></script>
 </body>
 </html>

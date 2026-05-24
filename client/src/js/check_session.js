@@ -4,7 +4,7 @@ const checkSession = () =>{
         window.location.href = "./login.html";
         return;
     }
-    
+
     const now = new Date().getTime();
 
     if(now > userSession){
