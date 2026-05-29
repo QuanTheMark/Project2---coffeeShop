@@ -1,51 +1,89 @@
 .banner-group{
     background-image: url('../img/header-bg.jpg');
     width: 100%;
-    height: 100vh;
-    background-repeat :no-repeat;
-    background-position: center bottom;
-    background-size: 100% 100%;
+    /* use min-height + auto height so image scales better on small screens */
+    min-height: 60vh;
+    height: auto;
+    background-repeat: no-repeat;
+    /* prefer top-center on small/medium so focal point remains visible */
+    background-position: center top;
+    /* cover prevents extreme distortion on narrow screens */
+    background-size: cover;
+    /* avoid fixed attachment on mobile (causes odd behavior / apparent shrinking) */
+    background-attachment: scroll;
     overflow: hidden;
-    background-color: #F5F5F7    ;
+    background-color: #F5F5F7;
 }
 
+/* preserve original full-viewport / fixed behaviour for larger screens */
+@media (min-width: 769px) {
+    .banner-group{
+        height: 100vh;
+        min-height: unset;
+        background-position: center bottom;
+        /* restore original full-stretch on desktop if desired */
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
 
 header{
     background-color: rgba(0, 0, 0, 0.75);
-    height: 100px;
+    height: clamp(60px, 10vh, 100px);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     z-index: 9;
+
+    /* center header content vertically and space items horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(10px, 2.5vw, 20px);
 }
 
+/* ensure header regions align vertically */
+header .logo,
+header .nav,
+header .profile {
+    display: flex;
+    align-items: center;
+}
+
+/* keep logo image from overflowing header height */
 header .logo img{
-    max-width: 150px;
+    max-width: clamp(80px, 15vw, 150px);
     height: auto;
+    max-height: 70%; /* fits inside the header's height */
 }
 
 header .profile button{
     border: none;
     background: none;
     color: var(--color-white);
-
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
+
 .profile button{
-    width: 150px;
-    transform: translateX(30px);
+    width: clamp(100px, 20vw, 150px);
+
 }
 
 .dropdown-menu{
     padding: 0;
     width: 10px;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .dropdown-item{
     border-radius: 8px;
     margin: 10px 0;
     text-align: center;
+    padding: clamp(8px, 2vw, 10px) clamp(3px, 1vw, 5px);
 }
 
 .dropdown-item:hover{
@@ -55,26 +93,31 @@ header .profile button{
 }
 
 .banner-text{
-    padding-top: 200px ;
+    padding-top: clamp(100px, 15vh, 200px);
 }
 
 .banner-text .title{
-    font-size: 3em;
     font-weight: 600;
+    filter: drop-shadow(10px 15px 2.5px black);
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    
 }
 
-.banner-text .text-primary{
-    color: rgba(35, 58, 235, 0.9) !important;
+.banner-text h5{
+    color: var(--color-white);
+    filter: drop-shadow(10px 15px 2.5px  black);
+    font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
 .banner-text .btn{
     text-align: center;
     font-weight: 500;
-    font-size: 1.5em;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     color: var(--color-warning);
     background-color: rgba(1, 1, 1, 1);
-    margin: 50px;
+    margin: 5px;
     transform: translateY(50px);
+    filter: drop-shadow(2px 6px 9.8px  black);
 }
 
 .banner-text .btn:hover{
@@ -88,4 +131,162 @@ header .profile button{
     border-radius: 10px;
     font-weight: 600;
     transition: ease 0.5s;
+}
+
+/* product */
+.product-list .product-item .content{
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0 2px 2px 0px, rgba(0, 0, 0, 0.45) 0 2px 2px 0px;
+}
+
+.product-list .product-item img{
+    width: 100%;
+    height: clamp(180px, 40vw, 250px);
+    object-fit: cover;
+    border-radius: 8px 8px 0 0 ;
+}
+
+.coming-soon-text{
+    display: flex;
+    align-items: center;
+    aspect-ratio: 4 / 3;
+    font-size: clamp(1.5rem, 5vw, 2.7rem);
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.45);
+    text-align: center;
+    justify-content: center;
+    padding: clamp(50px, 10vh, 100px) 0 0 0;
+    margin: clamp(20px, 5vw, 50px);
+}
+
+
+/* footer content */
+footer{
+    margin-top: 40px;
+    width: 100%;
+}
+
+footer .container{
+    padding: 20px clamp(10px, 5vw, 15px);
+    color: var(--color-white);
+}
+
+/* order form */
+.order-form{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 6;
+}
+
+.order-form .content{
+    position: absolute;
+    min-width: clamp(90vw, 95vw, 600px);
+    background-color: var(--color-white);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    max-width: 95vw;
+    border-radius: 8px;
+}
+
+.order-form .content .img{
+    width: 100%;
+    height: clamp(150px, 40vh, 200px);
+    object-fit: cover;
+}
+
+.order-form .content p{
+    margin: 5px 0;
+    color: var(--color-grey);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    padding: clamp(5px, 2vw, 10px);
+}
+
+@media (max-width: 768px) {
+    .order-form .content {
+        min-width: 90vw;
+        max-width: 500px;
+    }
+
+    .banner-text {
+        padding-top: clamp(80px, 12vh, 150px);
+    }
+
+    .coming-soon-text {
+        padding: clamp(30px, 8vh, 50px) clamp(10px, 5vw, 20px) 0 clamp(10px, 5vw, 20px);
+        margin: clamp(15px, 3vw, 30px);
+    }
+}
+
+@media (max-width: 431px) {
+    header {
+        height: 60px;
+    }
+
+    header .logo img {
+        max-width: 80px;
+    }
+
+    .profile button {
+        width: 100px;
+    }
+
+    .banner-text {
+        padding-top: clamp(50px, 10vh, 110px); /* pull content a bit up for mobile */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 15px;
+    }
+
+    .banner-text .title{
+        line-height: 1.15;
+        font-weight: 700;
+        filter: drop-shadow(3px 5px 2px rgba(0,0,0,0.6)); /* reduced shadow */
+        max-width: 95%;
+        margin: 0;
+    }
+
+    .banner-text h5{
+        font-size: clamp(0.7rem, 2vw, 1rem);
+        filter: none; /* simpler on small screens */
+        color: var(--color-white);
+        margin: 0;
+        max-width: 92%;
+    }
+
+    .banner-text .btn{
+        font-size: 0.95rem;
+        width: 55%;
+        transform: translateY(10px); /* much smaller vertical offset */
+        margin-top: 6px;
+        box-shadow: none;
+    }
+
+    .banner-text .btn:hover{
+        background-color: var(--color-success);
+        transition:  0.25s ease, color 0.25s ease;
+    }
+
+    .order-form .content {
+        min-width: 90vw;
+    }
+
+    footer .container {
+        padding: 15px 10px;
+    }
+
+    /* give mobile a bit more vertical space so background isn't overly cropped */
+    .banner-group {
+        min-height: 50vh;
+        background-position: center top;
+        background-size: 75vh 100vw;
+        background-attachment: fixed;
+    }
 }
